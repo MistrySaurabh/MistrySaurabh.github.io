@@ -1,0 +1,6 @@
+/* Custom styles to supplement Tailwind */
+/* Most styles are handled via Tailwind util classes */
+
+body {
+    background-color: #020617; /* Slate 950 fallback */
+}
