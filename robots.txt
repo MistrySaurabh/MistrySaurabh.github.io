@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://mistrysaurabh.github.io/sitemap.xml
