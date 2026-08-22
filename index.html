@@ -313,11 +313,46 @@
                 </button>
             </div>
             <!-- Mobile Menu Button -->
-            <button class="md:hidden text-white focus:outline-none">
-                <i class="fas fa-bars text-2xl"></i>
+            <button id="mobile-menu-btn" onclick="toggleMobileMenu()" class="md:hidden text-slate-900 dark:text-white focus:outline-none z-50 relative" aria-label="Toggle Menu">
+                <i id="mobile-menu-icon" class="fas fa-bars text-2xl"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobile-menu" class="hidden md:hidden absolute top-full left-0 w-full bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800 shadow-xl px-6 py-4 flex flex-col space-y-4">
+            <a href="#about" onclick="closeMobileMenu()" class="text-sm font-medium hover:text-cyan-400 transition-colors py-2">About</a>
+            <a href="#features" onclick="closeMobileMenu()" class="text-sm font-medium hover:text-cyan-400 transition-colors py-2">Competencies</a>
+            <a href="#experience" onclick="closeMobileMenu()" class="text-sm font-medium hover:text-cyan-400 transition-colors py-2">Experience</a>
+            <a href="#skills" onclick="closeMobileMenu()" class="text-sm font-medium hover:text-cyan-400 transition-colors py-2">Skills</a>
+            <a href="#portfolio" onclick="closeMobileMenu()" class="text-sm font-medium hover:text-cyan-400 transition-colors py-2">Work</a>
+            <a href="#contact" onclick="closeMobileMenu()" class="px-6 py-3 bg-gradient-to-r from-cyan-500 to-violet-600 rounded-full text-white font-bold text-center">Hire Me</a>
+            <button onclick="toggleTheme(); closeMobileMenu();" class="flex items-center gap-2 text-sm font-medium py-2">
+                <i class="fas fa-sun text-yellow-400 hidden dark:inline-block"></i>
+                <i class="fas fa-moon text-slate-600 inline-block dark:hidden"></i>
+                <span class="dark:hidden">Dark Mode</span>
+                <span class="hidden dark:inline">Light Mode</span>
             </button>
         </div>
     </nav>
+
+    <script>
+        function toggleMobileMenu() {
+            var menu = document.getElementById('mobile-menu');
+            var icon = document.getElementById('mobile-menu-icon');
+            menu.classList.toggle('hidden');
+            if (menu.classList.contains('hidden')) {
+                icon.classList.replace('fa-times', 'fa-bars');
+            } else {
+                icon.classList.replace('fa-bars', 'fa-times');
+            }
+        }
+        function closeMobileMenu() {
+            var menu = document.getElementById('mobile-menu');
+            var icon = document.getElementById('mobile-menu-icon');
+            menu.classList.add('hidden');
+            icon.classList.replace('fa-times', 'fa-bars');
+        }
+    </script>
 
     <!-- Main Content Area -->
     <main>
@@ -359,7 +394,7 @@
 
             <!-- Scroll Indicator -->
             <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-float">
-                <a href="#profile"
+                <a href="#about"
                     class="text-slate-500 hover:text-orange-400 transition-colors flex flex-col items-center gap-2">
                     <span class="text-xs tracking-widest uppercase opacity-70">Scroll</span>
                     <i class="fas fa-chevron-down text-2xl"></i>
@@ -388,7 +423,7 @@
                             <h2 class="text-3xl md:text-5xl font-bold mb-6 text-slate-900 dark:text-white">About Me</h2>
                             <p class="text-slate-600 dark:text-slate-300 text-lg leading-relaxed mb-6">
                                 👨🏼‍💻 <strong>FullStack Web Developer</strong> with over <span
-                                    class="text-orange-600 dark:text-orange-400 font-bold">8 years</span> of experience
+                                    class="text-orange-600 dark:text-orange-400 font-bold">8.7 years</span> of experience
                                 driving
                                 business-centric tech solutions.
                                 I blend <span class="text-cyan-600 dark:text-cyan-400">creativity</span> with <span
@@ -661,7 +696,7 @@
                                 <div class="text-slate-500 dark:text-slate-400 text-xs mt-1">On Location, Work From
                                     Office</div>
                                 <div class="text-slate-400 dark:text-slate-500 text-xs mt-1 font-mono">5 Jan 2026 -
-                                    Present</div>
+                                    7 September 2026</div>
                             </div>
 
                             <div
@@ -1000,7 +1035,7 @@
                             <span class="px-2 py-1 bg-slate-200 dark:bg-slate-800 rounded text-xs text-slate-700 dark:text-slate-300">PostgreSQL</span>
                             <span class="px-2 py-1 bg-slate-200 dark:bg-slate-800 rounded text-xs text-slate-700 dark:text-slate-300">Drizzle ORM</span>
                         </div>
-                        <a href="https://frontend.preprod.cfaomobility.co.za/" target="_blank" class="absolute inset-0 z-10"></a>
+                        <a href="https://cfaomobility.co.za/" target="_blank" class="absolute inset-0 z-10"></a>
                         <div class="text-emerald-500 text-sm font-bold flex items-center gap-1 group-hover:gap-2 transition-all">
                             View Project <i class="fas fa-arrow-right"></i>
                         </div>
@@ -1055,10 +1090,8 @@
                             <span
                                 class="px-2 py-1 bg-slate-200 dark:bg-slate-800 rounded text-xs text-slate-700 dark:text-slate-300">Solana</span>
                         </div>
-                        <a href="https://dotpvp.fun/" target="_blank" class="absolute inset-0 z-10"></a>
-                        <div
-                            class="text-cyan-500 text-sm font-bold flex items-center gap-1 group-hover:gap-2 transition-all">
-                            View Project <i class="fas fa-arrow-right"></i>
+                        <div class="text-slate-400 text-sm font-bold">
+                            Internal Project
                         </div>
                     </div>
 
@@ -1082,11 +1115,8 @@
                             <span
                                 class="px-2 py-1 bg-slate-200 dark:bg-slate-800 rounded text-xs text-slate-700 dark:text-slate-300">Web3</span>
                         </div>
-                        <a href="https://iagent-protocol-fe.vercel.app/" target="_blank"
-                            class="absolute inset-0 z-10"></a>
-                        <div
-                            class="text-violet-500 text-sm font-bold flex items-center gap-1 group-hover:gap-2 transition-all">
-                            View Project <i class="fas fa-arrow-right"></i>
+                        <div class="text-slate-400 text-sm font-bold">
+                            Internal Project
                         </div>
                     </div>
 
@@ -1110,11 +1140,8 @@
                             <span
                                 class="px-2 py-1 bg-slate-200 dark:bg-slate-800 rounded text-xs text-slate-700 dark:text-slate-300">NestJS</span>
                         </div>
-                        <a href="https://dreamooor-fe-one.vercel.app/" target="_blank"
-                            class="absolute inset-0 z-10"></a>
-                        <div
-                            class="text-orange-500 text-sm font-bold flex items-center gap-1 group-hover:gap-2 transition-all">
-                            View Project <i class="fas fa-arrow-right"></i>
+                        <div class="text-slate-400 text-sm font-bold">
+                            Internal Project
                         </div>
                     </div>
 
@@ -1140,7 +1167,7 @@
                             <span
                                 class="px-2 py-1 bg-slate-200 dark:bg-slate-800 rounded text-xs text-slate-700 dark:text-slate-300">MongoDB</span>
                         </div>
-                        <a href="https://app.teledaddy.com" target="_blank" class="absolute inset-0 z-10"></a>
+                        <a href="https://drive.google.com/drive/folders/1Uybc6UiPRrlg9AUjSqspJAAOIv_HyZhL?usp=drive_link" target="_blank" class="absolute inset-0 z-10"></a>
                         <div
                             class="text-cyan-500 text-sm font-bold flex items-center gap-1 group-hover:gap-2 transition-all">
                             View Project <i class="fas fa-arrow-right"></i>
@@ -1169,7 +1196,7 @@
                             <span
                                 class="px-2 py-1 bg-slate-200 dark:bg-slate-800 rounded text-xs text-slate-700 dark:text-slate-300">MySQL</span>
                         </div>
-                        <a href="https://golfed.be/" target="_blank" class="absolute inset-0 z-10"></a>
+                        <a href="https://drive.google.com/drive/folders/1GtuhAAE9wbquh56QWK7xsSo2IRedwJ_s?usp=drive_link" target="_blank" class="absolute inset-0 z-10"></a>
                         <div
                             class="text-green-500 text-sm font-bold flex items-center gap-1 group-hover:gap-2 transition-all">
                             View Project <i class="fas fa-arrow-right"></i>
@@ -1245,10 +1272,10 @@
                             <span
                                 class="px-2 py-1 bg-slate-200 dark:bg-slate-800 rounded text-xs text-slate-700 dark:text-slate-300">Dubai</span>
                         </div>
-                        <a href="https://portal.alyanaapp.com/" target="_blank" class="absolute inset-0 z-10"></a>
+                        <a href="https://play.google.com/store/apps/details?id=com.arche.alyanahealthmobile1&hl=en_US&gl=US" target="_blank" class="absolute inset-0 z-10"></a>
                         <div
                             class="text-blue-500 text-sm font-bold flex items-center gap-1 group-hover:gap-2 transition-all">
-                            View Project <i class="fas fa-arrow-right"></i>
+                            View on Play Store <i class="fas fa-arrow-right"></i>
                         </div>
                     </div>
 
@@ -1298,7 +1325,7 @@
                             <span
                                 class="px-2 py-1 bg-slate-200 dark:bg-slate-800 rounded text-xs text-slate-700 dark:text-slate-300">Content</span>
                         </div>
-                        <a href="https://nextbigideaclub.com/app/" target="_blank" class="absolute inset-0 z-10"></a>
+                        <a href="https://drive.google.com/drive/folders/1mb0V_Ww5s5wOhtHsP70W1vaf7iJhZ3Co?usp=drive_link" target="_blank" class="absolute inset-0 z-10"></a>
                         <div
                             class="text-yellow-500 text-sm font-bold flex items-center gap-1 group-hover:gap-2 transition-all">
                             View Project <i class="fas fa-arrow-right"></i>
@@ -1351,7 +1378,7 @@
                             <span
                                 class="px-2 py-1 bg-slate-200 dark:bg-slate-800 rounded text-xs text-slate-700 dark:text-slate-300">PHP</span>
                         </div>
-                        <a href="https://weopined.com/" target="_blank" class="absolute inset-0 z-10"></a>
+                        <a href="https://drive.google.com/drive/folders/1ZG2bVK0AXpJSsQSrgQj40xT_Wy34_rns?usp=drive_link" target="_blank" class="absolute inset-0 z-10"></a>
                         <div
                             class="text-pink-500 text-sm font-bold flex items-center gap-1 group-hover:gap-2 transition-all">
                             View Project <i class="fas fa-arrow-right"></i>
@@ -1378,9 +1405,148 @@
                             <span
                                 class="px-2 py-1 bg-slate-200 dark:bg-slate-800 rounded text-xs text-slate-700 dark:text-slate-300">AdTech</span>
                         </div>
-                        <a href="http://adacts.com/" target="_blank" class="absolute inset-0 z-10"></a>
+                        <a href="https://drive.google.com/drive/folders/1_n9NpZtEorLout3zUoZON-VY4I-mfHIc?usp=drive_link" target="_blank" class="absolute inset-0 z-10"></a>
                         <div
                             class="text-orange-500 text-sm font-bold flex items-center gap-1 group-hover:gap-2 transition-all">
+                            View Project <i class="fas fa-arrow-right"></i>
+                        </div>
+                    </div>
+
+
+                    <!-- Healthroad MealBox -->
+                    <div class="glass-card p-6 rounded-xl hover:bg-white dark:hover:bg-slate-900 transition-all duration-300 group relative"
+                        data-aos="fade-up" data-aos-delay="0">
+                        <div class="text-3xl text-teal-600 dark:text-teal-400 mb-4">
+                            <i class="fas fa-apple-alt"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-1">Healthroad MealBox</h3>
+                        <p class="text-xs text-teal-600 dark:text-teal-400 font-mono mb-2">Duration : (13 MAR 2024 - 14 AUG 2024)</p>
+                        <p class="text-slate-500 dark:text-slate-400 text-sm mb-3">Diet & Nutrition App · Bahrain</p>
+                        <ul class="list-disc list-inside text-slate-500 dark:text-slate-400 text-xs mb-4 space-y-1">
+                            <li>Created REST API for admin portal and React Native mobile app.</li>
+                        </ul>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-2 py-1 bg-slate-200 dark:bg-slate-800 rounded text-xs text-slate-700 dark:text-slate-300">Node.js</span>
+                            <span class="px-2 py-1 bg-slate-200 dark:bg-slate-800 rounded text-xs text-slate-700 dark:text-slate-300">Express</span>
+                            <span class="px-2 py-1 bg-slate-200 dark:bg-slate-800 rounded text-xs text-slate-700 dark:text-slate-300">React</span>
+                        </div>
+                        <a href="https://drive.google.com/drive/folders/1xqo9w_g17pMEeKwLyr22ckBDRbIu0Y9Q?usp=sharing" target="_blank" class="absolute inset-0 z-10"></a>
+                        <div class="text-teal-500 text-sm font-bold flex items-center gap-1 group-hover:gap-2 transition-all">
+                            View Project <i class="fas fa-arrow-right"></i>
+                        </div>
+                    </div>
+
+                    <!-- Proact Healthcare System -->
+                    <div class="glass-card p-6 rounded-xl hover:bg-white dark:hover:bg-slate-900 transition-all duration-300 group relative"
+                        data-aos="fade-up" data-aos-delay="100">
+                        <div class="text-3xl text-blue-600 dark:text-blue-400 mb-4">
+                            <i class="fas fa-hospital"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-1">Proact Healthcare</h3>
+                        <p class="text-xs text-blue-600 dark:text-blue-400 font-mono mb-2">Duration : (8 MAY 2023 - 12 OCT 2023)</p>
+                        <p class="text-slate-500 dark:text-slate-400 text-sm mb-3">Healthcare System · Kuwait</p>
+                        <ul class="list-disc list-inside text-slate-500 dark:text-slate-400 text-xs mb-4 space-y-1">
+                            <li>Implemented Dental Module & Invoice Generation.</li>
+                            <li>CRUD APIs with AWS EC2, S3, Route53.</li>
+                        </ul>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-2 py-1 bg-slate-200 dark:bg-slate-800 rounded text-xs text-slate-700 dark:text-slate-300">Node.js</span>
+                            <span class="px-2 py-1 bg-slate-200 dark:bg-slate-800 rounded text-xs text-slate-700 dark:text-slate-300">React</span>
+                            <span class="px-2 py-1 bg-slate-200 dark:bg-slate-800 rounded text-xs text-slate-700 dark:text-slate-300">AWS</span>
+                        </div>
+                        <a href="https://drive.google.com/drive/folders/1nnyYCp9psikutvsNz0NOV-wv84wWEB-E?usp=drive_link" target="_blank" class="absolute inset-0 z-10"></a>
+                        <div class="text-blue-500 text-sm font-bold flex items-center gap-1 group-hover:gap-2 transition-all">
+                            View Project <i class="fas fa-arrow-right"></i>
+                        </div>
+                    </div>
+
+                    <!-- Kuwait Election -->
+                    <div class="glass-card p-6 rounded-xl hover:bg-white dark:hover:bg-slate-900 transition-all duration-300 group relative"
+                        data-aos="fade-up" data-aos-delay="200">
+                        <div class="text-3xl text-amber-600 dark:text-amber-400 mb-4">
+                            <i class="fas fa-vote-yea"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-1">Kuwait Election</h3>
+                        <p class="text-xs text-amber-600 dark:text-amber-400 font-mono mb-2">Duration : (8 MAY 2023 - 12 MAY 2023)</p>
+                        <p class="text-slate-500 dark:text-slate-400 text-sm mb-3">Election Campaign Platform · Kuwait</p>
+                        <ul class="list-disc list-inside text-slate-500 dark:text-slate-400 text-xs mb-4 space-y-1">
+                            <li>Admin portal & API server for iOS mobile app.</li>
+                            <li>5000 IOPS load tested with J-METER & AWS RDS.</li>
+                        </ul>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-2 py-1 bg-slate-200 dark:bg-slate-800 rounded text-xs text-slate-700 dark:text-slate-300">Node.js</span>
+                            <span class="px-2 py-1 bg-slate-200 dark:bg-slate-800 rounded text-xs text-slate-700 dark:text-slate-300">React</span>
+                            <span class="px-2 py-1 bg-slate-200 dark:bg-slate-800 rounded text-xs text-slate-700 dark:text-slate-300">AWS RDS</span>
+                        </div>
+                        <a href="https://drive.google.com/drive/folders/1AbaWIm-7YlCynLhB5ZEfppYNkrW12O4g?usp=drive_link" target="_blank" class="absolute inset-0 z-10"></a>
+                        <div class="text-amber-500 text-sm font-bold flex items-center gap-1 group-hover:gap-2 transition-all">
+                            View Project <i class="fas fa-arrow-right"></i>
+                        </div>
+                    </div>
+
+                    <!-- CMP -->
+                    <div class="glass-card p-6 rounded-xl hover:bg-white dark:hover:bg-slate-900 transition-all duration-300 group relative"
+                        data-aos="fade-up" data-aos-delay="0">
+                        <div class="text-3xl text-indigo-600 dark:text-indigo-400 mb-4">
+                            <i class="fas fa-paint-brush"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-1">CMP</h3>
+                        <p class="text-xs text-indigo-600 dark:text-indigo-400 font-mono mb-2">Duration : (2017 - 2019)</p>
+                        <p class="text-slate-500 dark:text-slate-400 text-sm mb-3">Creative Management Platform · Adacts</p>
+                        <ul class="list-disc list-inside text-slate-500 dark:text-slate-400 text-xs mb-4 space-y-1">
+                            <li>React platform for designing animated online banner ads.</li>
+                        </ul>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-2 py-1 bg-slate-200 dark:bg-slate-800 rounded text-xs text-slate-700 dark:text-slate-300">React</span>
+                            <span class="px-2 py-1 bg-slate-200 dark:bg-slate-800 rounded text-xs text-slate-700 dark:text-slate-300">AdTech</span>
+                        </div>
+                        <a href="https://drive.google.com/drive/folders/1ANgQXENW9Zmn3RcU6yo70Fz5zLLDxp22?usp=drive_link" target="_blank" class="absolute inset-0 z-10"></a>
+                        <div class="text-indigo-500 text-sm font-bold flex items-center gap-1 group-hover:gap-2 transition-all">
+                            View Project <i class="fas fa-arrow-right"></i>
+                        </div>
+                    </div>
+
+                    <!-- UltracleanBooster App -->
+                    <div class="glass-card p-6 rounded-xl hover:bg-white dark:hover:bg-slate-900 transition-all duration-300 group relative"
+                        data-aos="fade-up" data-aos-delay="100">
+                        <div class="text-3xl text-slate-600 dark:text-slate-400 mb-4">
+                            <i class="fas fa-mobile-alt"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-1">UltracleanBooster</h3>
+                        <p class="text-xs text-slate-500 dark:text-slate-400 font-mono mb-2">Duration : (2017 - 2019)</p>
+                        <p class="text-slate-500 dark:text-slate-400 text-sm mb-3">Android Cleaner App · Adacts</p>
+                        <ul class="list-disc list-inside text-slate-500 dark:text-slate-400 text-xs mb-4 space-y-1">
+                            <li>Developed Android SDK library for banner ads & user data collection.</li>
+                        </ul>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-2 py-1 bg-slate-200 dark:bg-slate-800 rounded text-xs text-slate-700 dark:text-slate-300">Android</span>
+                            <span class="px-2 py-1 bg-slate-200 dark:bg-slate-800 rounded text-xs text-slate-700 dark:text-slate-300">Java</span>
+                        </div>
+                        <a href="https://drive.google.com/drive/folders/1JdfNSGtSsVe0GmbW9uAA9bUjwSOGujdM?usp=drive_link" target="_blank" class="absolute inset-0 z-10"></a>
+                        <div class="text-slate-500 text-sm font-bold flex items-center gap-1 group-hover:gap-2 transition-all">
+                            View Project <i class="fas fa-arrow-right"></i>
+                        </div>
+                    </div>
+
+                    <!-- Grocery App -->
+                    <div class="glass-card p-6 rounded-xl hover:bg-white dark:hover:bg-slate-900 transition-all duration-300 group relative"
+                        data-aos="fade-up" data-aos-delay="200">
+                        <div class="text-3xl text-green-600 dark:text-green-400 mb-4">
+                            <i class="fas fa-shopping-basket"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-1">Grocery App</h3>
+                        <p class="text-xs text-green-600 dark:text-green-400 font-mono mb-2">Duration : (JAN 2017 - MAY 2017)</p>
+                        <p class="text-slate-500 dark:text-slate-400 text-sm mb-3">E-commerce Grocery App · Internship</p>
+                        <ul class="list-disc list-inside text-slate-500 dark:text-slate-400 text-xs mb-4 space-y-1">
+                            <li>Android app with REST API and admin module.</li>
+                        </ul>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-2 py-1 bg-slate-200 dark:bg-slate-800 rounded text-xs text-slate-700 dark:text-slate-300">Android</span>
+                            <span class="px-2 py-1 bg-slate-200 dark:bg-slate-800 rounded text-xs text-slate-700 dark:text-slate-300">Node.js</span>
+                            <span class="px-2 py-1 bg-slate-200 dark:bg-slate-800 rounded text-xs text-slate-700 dark:text-slate-300">MongoDB</span>
+                        </div>
+                        <a href="https://drive.google.com/drive/folders/11n4JMLVJ5UG6p759YX2AYp6IgNAz0Yka?usp=drive_link" target="_blank" class="absolute inset-0 z-10"></a>
+                        <div class="text-green-500 text-sm font-bold flex items-center gap-1 group-hover:gap-2 transition-all">
                             View Project <i class="fas fa-arrow-right"></i>
                         </div>
                     </div>
